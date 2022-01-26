@@ -6,6 +6,7 @@ const createProduct = require('./controllers/createProduct');
 const getAllProducts = require('./controllers/getAllProducts');
 const findProductById = require('./controllers/findProductById');
 const atualizaProduto = require('./controllers/atualizaProduto');
+const deleteProduct = require('./controllers/deleteProduct');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,7 +20,8 @@ app.get('/', (_request, response) => {
 
 app.route('/products/:id')
   .get(findProductById)
-  .put(atualizaProduto);
+  .put(atualizaProduto)
+  .delete(deleteProduct);
 
 app.route('/products')
   .post(createProduct)
