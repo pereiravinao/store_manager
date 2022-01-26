@@ -22,11 +22,13 @@ const isValidQtd = (quantity) => {
 };
 
 const isValid = async (name, quantity) => {
+  const products = await getAllProducts();
+  const id = Math.max(...products.map((e) => e.id)) + 1;
   const validaName = await isValidName(name);
   const validaQtd = isValidQtd(quantity);
   if (validaQtd.code) return isValidQtd(quantity);
   if (validaName.code) return isValidName(name);
-  return {};
+  return { id };
 };
 
 module.exports = isValid;
