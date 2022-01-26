@@ -5,6 +5,7 @@ require('dotenv').config();
 const createProduct = require('./controllers/createProduct');
 const getAllProducts = require('./controllers/getAllProducts');
 const findProductById = require('./controllers/findProductById');
+const atualizaProduto = require('./controllers/atualizaProduto');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,7 +17,9 @@ app.get('/', (_request, response) => {
   response.send();
 });
 
-app.get('/products/:id', findProductById);
+app.route('/products/:id')
+  .get(findProductById)
+  .put(atualizaProduto);
 
 app.route('/products')
   .post(createProduct)
