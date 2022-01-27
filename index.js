@@ -10,6 +10,7 @@ const deleteProduct = require('./controllers/deleteProduct');
 const createNewSale = require('./controllers/createSale');
 const getSales = require('./controllers/getSales');
 const getSaleId = require('./controllers/getSaleId');
+const updateSale = require('./controllers/updateSale');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -31,7 +32,8 @@ app.route('/products')
   .get(getAllProducts);
 
 app.route('/sales/:id')
-  .get(getSaleId);
+  .get(getSaleId)
+  .put(updateSale);
 
 app.route('/sales')
   .post(createNewSale)
