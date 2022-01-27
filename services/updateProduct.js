@@ -4,7 +4,6 @@ const findById = require('./findById');
 const updateProduct = async (name, quantity, id) => {
   await UpdateProductModel(name, quantity, id);
   const newProduct = await findById(id);
-  console.log(newProduct);
   return newProduct;
 };
 
