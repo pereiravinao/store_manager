@@ -1,4 +1,4 @@
-const isValid = require('../../services/Validations');
+const { isValid } = require('../../services/Validations');
 const saveInDB = require('../../models/SaveProducts');
 
 const createProduct = async (req, res) => {

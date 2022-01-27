@@ -1,4 +1,4 @@
-const isValid = require('../../services/Validations');
+const { isValid } = require('../../services/Validations');
 const updateProduct = require('../../services/updateProduct');
 
 const atualizaProduto = async (req, res) => {
