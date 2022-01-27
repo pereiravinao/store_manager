@@ -7,6 +7,7 @@ const getAllProducts = require('./controllers/Product/getAllProducts');
 const findProductById = require('./controllers/Product/findProductById');
 const atualizaProduto = require('./controllers/Product/atualizaProduto');
 const deleteProduct = require('./controllers/Product/deleteProduct');
+const createNewSale = require('./controllers/Sales/createSale');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,8 +28,8 @@ app.route('/products')
   .post(createProduct)
   .get(getAllProducts);
 
-// app.route('/sales')
-//   .post(createSale);
+app.route('/sales')
+  .post(createNewSale);
 
 app.listen(PORT, () => {
   console.log(`Escutando na porta ${PORT}`);
