@@ -27,8 +27,8 @@ app.route('/products')
   .post(createProduct)
   .get(getAllProducts);
 
-app.route('/sales')
-  .post(createSale);
+// app.route('/sales')
+//   .post(createSale);
 
 app.listen(PORT, () => {
   console.log(`Escutando na porta ${PORT}`);

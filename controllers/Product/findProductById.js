@@ -1,4 +1,4 @@
-const findById = require('../services/findById');
+const findById = require('../../services/findById');
 
 const findId = async (req, res) => {
   const { id } = req.params;
