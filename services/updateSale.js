@@ -7,7 +7,6 @@ const updateProduct = async (id, arr) => {
   if (validaVenda.code) { return { code: validaVenda.code, message: validaVenda.message }; }
   await updateSaleModel(productId, quantity, id);
   const newProduct = { saleId: Number(id), itemUpdated: arr };
-  console.log(newProduct);
   return newProduct;
 };
 
