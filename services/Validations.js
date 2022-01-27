@@ -2,6 +2,7 @@ const { getAllProducts } = require('../models/getAllProducts');
 
 const isRequired = '"name" is required';
 const isQtdRequired = '"quantity" is required';
+const isIdRequired = '"product_id" is required';
 const isNotLength = '"name" length must be at least 5 characters long';
 const productExists = 'Product already exists';
 const isNotNumber = '"quantity" must be a number larger than or equal to 1';
@@ -31,4 +32,17 @@ const isValid = async (name, quantity) => {
   return { id };
 };
 
-module.exports = isValid;
+const isValidProductId = (productId) => {
+  if (!productId) return { code: 400, message: isIdRequired };
+  return {};
+};
+
+const isValidSale = (productId, quantity) => {
+  const validaIdProduto = isValidProductId(productId);
+  const validaQtd = isValidQtd(quantity);
+  if (validaIdProduto.code) return validaIdProduto;
+  if (validaQtd.code) return validaQtd;
+  return {};
+};
+
+module.exports = { isValid, isValidSale };
