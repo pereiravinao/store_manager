@@ -7,6 +7,7 @@ const updateSales = async (req, res) => {
   if (saleUpdated.code) {
     return res.status(saleUpdated.code).json({ message: saleUpdated.message }); 
   }
+  
   res.status(200).json(saleUpdated);
 };
 
