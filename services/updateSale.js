@@ -3,7 +3,7 @@ const { isValidSale } = require('./Validations');
 
 const updateProduct = async (id, arr) => {
   const { product_id: productId, quantity } = arr[0];
-  const validaVenda = isValidSale(productId, quantity);
+  const validaVenda = await isValidSale(productId, quantity);
   if (validaVenda.code) { return { code: validaVenda.code, message: validaVenda.message }; }
   await updateSaleModel(productId, quantity, id);
   const newProduct = { saleId: Number(id), itemUpdated: arr };

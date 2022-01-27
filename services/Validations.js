@@ -42,7 +42,6 @@ const isValidProductId = async (productId) => {
 const isValidSale = async (productId, quantity) => {
   const validaIdProduto = await isValidProductId(productId);
   const validaQtd = isValidQtd(quantity);
-  console.log(validaIdProduto, validaQtd);
   if (validaIdProduto.code) { return validaIdProduto; }
   if (validaQtd.code) { return validaQtd; }
   return {};

@@ -16,6 +16,7 @@ const createSaleModel = async (sale) => {
   sale.forEach(async (product) => {
     await connection.query(queryInsert, [id, product.product_id, product.quantity]);
   });
+
   return { id, itemsSold: sale };
 };
 module.exports = createSaleModel;
