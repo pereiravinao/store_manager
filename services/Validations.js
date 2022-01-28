@@ -47,4 +47,4 @@ const isValidSale = async (productId, quantity) => {
   return {};
 };
 
-module.exports = { isValid, isValidSale };
+module.exports = { isValid, isValidSale, isValidProductId, isValidName, isValidQtd };
