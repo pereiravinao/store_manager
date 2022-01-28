@@ -3,7 +3,7 @@ const { expect } = require('chai');
 
 const connection = require('../../models/connection');
 const createProductModel = require('../../models/createProduct');
-const {getAllProducts} = require('../../models/getAllProducts');
+const {getAllProducts, findByIdModel} = require('../../models/getAllProducts');
 
 const product = {
   noName: { quantity: 2},
@@ -51,6 +51,41 @@ describe('Busca lista de Produtos no BD', () => {
     it('verifica se o objeto retornado possui as chaves id, name, quantity', async () => {
       const item = await getAllProducts();
       expect(item).to.include.all.keys('id', 'name', 'quantity');
+    });
+  });
+});
+
+describe('Busca item por ID no BD', () => {
+  describe('retorna o produto de ID selecionado', async () => { 
+    before(async () => {
+      sinon.stub(connection, 'execute').resolves([[product.returnCreate]]);
+    });
+    after(async () => {
+      connection.execute.restore();
+    });
+    it('verifica se retorna um objeto', async () => {
+      const item = await findByIdModel(1);
+      expect(item).to.be.an('object');
+    });
+    it('o objeto não esta vazio', async () => {
+      const item = await findByIdModel(1);
+      expect(item).to.not.be.empty;
+    });
+    it('verifica se o objeto retornado possui as chaves id, name, quantity', async () => {
+      const item = await findByIdModel(1);
+      expect(item).to.include.all.keys('name', 'quantity');
+    });
+  });
+  describe('Quando ID não existe', async () => { 
+    before(async () => {
+      sinon.stub(connection, 'execute').resolves([[]]);
+    });
+    after(async () => {
+      connection.execute.restore();
+    });
+    it('retornar valor null', async () => {
+      const item = await findByIdModel(3);
+      expect(item).to.be.equal(null);
     });
   });
 });
