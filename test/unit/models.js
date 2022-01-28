@@ -4,6 +4,7 @@ const { expect } = require('chai');
 const connection = require('../../models/connection');
 const createProductModel = require('../../models/createProduct');
 const UpdateProductModel = require('../../models/updateProductsModel');
+const deleteProductModel = require('../../models/deleteProductModel');
 const {getAllProducts, findByIdModel} = require('../../models/getAllProducts');
 
 
@@ -15,6 +16,7 @@ const product = {
   invalidQuantity: { name: "Outro Produto", quantity: "letra"},
   correct: { name: 'Primeiro Produto', quantity: 4 },
   returnCreate: {id: 1, name: 'Primeiro Produto', quantity: 4 },
+  returnUptade: {id: 1, name: 'Produto Atualizado', quantity: 400 }
 }
 
 describe('Insere produto no BD', () => {
@@ -103,5 +105,18 @@ describe('Atualizar Produto no BD', () => {
   it('verifica se retorna um array', async () => { 
     const item = await UpdateProductModel();
     expect(item).to.be.an('array');
+  });
+});
+
+describe('Deletar Produto no BD', () => {
+  before(async () => {
+    sinon.stub(connection, 'execute').resolves([]);
+  });
+  after(async () => {
+    connection.execute.restore();
+  });
+  it('verifica se retorna um array vazio', async () => { 
+    const item = await deleteProductModel(1);
+    expect(item).to.be.empty;
   });
 });
