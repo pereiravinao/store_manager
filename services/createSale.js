@@ -1,5 +1,5 @@
 const { isValidSale } = require('./Validations');
-const createSaleModel = require('../models/createSaleModel');
+const { createSaleModel } = require('../models/createSaleModel');
 
 const createSale = async (arraySales) => {
   const arr = await Promise.all(arraySales.map(async (sale) => {

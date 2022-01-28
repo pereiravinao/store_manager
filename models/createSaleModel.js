@@ -19,4 +19,4 @@ const createSaleModel = async (sale) => {
 
   return { id, itemsSold: sale };
 };
-module.exports = createSaleModel;
+module.exports = { createSaleModel, createNewSale };
