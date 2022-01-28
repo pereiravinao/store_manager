@@ -3,7 +3,10 @@ const { expect } = require('chai');
 
 const connection = require('../../models/connection');
 const createProductModel = require('../../models/createProduct');
+const UpdateProductModel = require('../../models/updateProductsModel');
 const {getAllProducts, findByIdModel} = require('../../models/getAllProducts');
+
+
 
 const product = {
   noName: { quantity: 2},
@@ -11,7 +14,7 @@ const product = {
   noQuantity: { name: "Algum produto"},
   invalidQuantity: { name: "Outro Produto", quantity: "letra"},
   correct: { name: 'Primeiro Produto', quantity: 4 },
-  returnCreate: {id: 1, name: 'Primeiro Produto', quantity: 4 }
+  returnCreate: {id: 1, name: 'Primeiro Produto', quantity: 4 },
 }
 
 describe('Insere produto no BD', () => {
@@ -87,5 +90,18 @@ describe('Busca item por ID no BD', () => {
       const item = await findByIdModel(3);
       expect(item).to.be.equal(null);
     });
+  });
+});
+
+describe('Atualizar Produto no BD', () => {
+  before(async () => {
+    sinon.stub(connection, 'execute').resolves([]);
+  });
+  after(async () => {
+    connection.execute.restore();
+  });
+  it('verifica se retorna um array', async () => { 
+    const item = await UpdateProductModel();
+    expect(item).to.be.an('array');
   });
 });
