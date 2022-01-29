@@ -8,6 +8,7 @@ const findProductById = require('./controllers/findProductById');
 const atualizaProduto = require('./controllers/atualizaProduto');
 const deleteProduct = require('./controllers/deleteProduct');
 const createNewSale = require('./controllers/createSale');
+const SalesControl = require('./controllers/SalesControl');
 const getSales = require('./controllers/getSales');
 const getSaleId = require('./controllers/getSaleId');
 const updateSale = require('./controllers/updateSale');
@@ -33,7 +34,8 @@ app.route('/products')
 
 app.route('/sales/:id')
   .get(getSaleId)
-  .put(updateSale);
+  .put(updateSale)
+  .delete(SalesControl.deleteSale);
 
 app.route('/sales')
   .post(createNewSale)
