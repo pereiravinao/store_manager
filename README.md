@@ -1,21 +1,10 @@
-# 🚧 README em construção 🚧
 
-<!-- Olá, Tryber!
+# Store Manager
 
-Esse é apenas um arquivo inicial para o README do seu projeto.
+Uma API utilizando a arquitetura MSC! Trata-se de um sistema de gerenciamento de vendas, onde é possível criar, visualizar, deletar e atualizar produtos e vendas.
 
-É essencial que você preencha esse documento por conta própria, ok?
 
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
-
--->
-
-# Habilidades
+## 🛠 Habilidades
 - Entender o funcionamento da camada de Model;
 - Delegar responsabilidades específicas para essa camada;
 - Conectar sua aplicação com diferentes bancos de dados;
@@ -25,7 +14,10 @@ Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua cr
 - Entender e aplicar os padrões REST;
 - Escrever assinaturas para APIs intuitivas e facilmente entendíveis.
 
-## O que foi desenvolvido
-Uma API utilizando a arquitetura MSC! Trata-se de um sistema de gerenciamento de vendas, onde é possível criar, visualizar, deletar e atualizar produtos e vendas.
+## Autores
+- [@pereiravinao](https://www.github.com/pereiravinao)
 
----
+## Apêndice
+Este projeto contém um template de uma aplicação NodeJS com express criado e configurado pela escola Trybe
+
+
